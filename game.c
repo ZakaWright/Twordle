@@ -363,8 +363,9 @@ void compareWords(struct State* state) {
         for (int j = 0; j < 26; j++) {
             if (guess->guess[i] == keys[j].key) {
                 keys[j].status = guess->result[i];
-                mvprintw(0, 0, "Status of key %c: %d", keys->key, keys->status);
-                refresh();
+                if (guess->result[i] == 0) {
+                    keys[j].status = 3;
+                }
             }
 
         }
